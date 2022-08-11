@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const bookwormSchema = new mongoose.Schema({
-    name: {type: String, require: true, unique: true},
-    genre: {type: String, require: true},
+    name: {type: String},
+    genre: {type: String},
     author: {type: String},
-    img: {type: String, unique: true},
-    description: {type: String, require: true},
-    read: {type: Boolean, require: true},
-    owned: {type: Boolean, require: true},
+    img: {type: String},
+    description: {type: String},
+    read: {type: Boolean},
+    owned: {type: Boolean},
     price: {type: Number,}
 });
 

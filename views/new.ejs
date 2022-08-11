@@ -16,19 +16,10 @@
                 <input type="text" name="author" placeholder= "Author" > <br>
                 <input type="number" name="price" placeholder="Price"> <br>
                 <input type="text" name="description" placeholder= "Description" > <br>
-                <input type="checkbox" name="read"> <br>
-                <input type="checkbox" name="owned"> <br>
+                <input type="checkbox" name="read"> <p>Check for Read/ Leave empty for Unread</p> <br>
+                <input type="checkbox" name="owned"> <p>Check for Owned/ Leave empty for Unowned</p> <br>
                 <input type="submit" value="Create Book">
             </form>
         </div>
 </body>
 </html>
-
-
-
-name: {type: String, require: true, unique: true},
-genre: {type: String, require: true},
-img: {type: String, unique: true},
-description: {type: String, require: true},
-read: {type: Boolean, require: true},
-owned: {type: Boolean, require: true}
