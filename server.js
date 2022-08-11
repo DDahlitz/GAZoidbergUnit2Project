@@ -4,6 +4,7 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const Bookworm = require('./models/schema.js')
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
@@ -47,6 +48,44 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 // Routes
 //___________________
+
+// Update
+// PUT /bookworm/:id
+
+
+// Edit
+// GET /bookworm/:id/edit
+
+
+// Create
+//POST /bookworm.post
+
+
+// Destroy
+// DELETE /bookworm/:id
+
+
+//New
+//GET /bookworm/new
+
+
+//Show
+//Get /bookworm/:index
+
+
+// Index
+//GET bookworm
+app.get('/bookworm', (req, res) => {
+    Bookworm.find({}, (error, allBooks) => {
+        res.render(
+            'index.ejs',
+            {
+                book: allBooks
+            }
+        )
+    })
+})
+
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello World!');

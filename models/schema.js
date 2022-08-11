@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+
+const bookwormSchema = new mongoose.Schema({
+    name: {type: String, require: true, unique: true},
+    genre: {type: String, require: true},
+    img: {type: String, require: true},
+    description: {type: String, require: true},
+    read: {type: Boolean, require: true},
+    owned: {type: Boolean, require: true}
+});
+
+const Bookworm = mongoose.model('Bookworm', bookwormSchema)
+
+module.exports = Bookworm;
