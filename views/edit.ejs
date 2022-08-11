@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1>Edit this Book Page</h1>
-    
+    <div class="container">
+        <form action="/bookworm" method="POST">
+            <input type="text" name="name" placeholder= "Book Title" > <br>
+            <input type="text" name="genre" placeholder= "Genre" > <br>
+            <input type="text" name="img" placeholder= "Cover Image" ><br>
+            <input type="text" name="author" placeholder= "Author" > <br>
+            <input type="number" name="price" placeholder="Price"> <br>
+            <input type="text" name="description" placeholder= "Description" > <br>
+            <input type="checkbox" name="read"> <br>
+            <input type="checkbox" name="owned"> <br>
+            <input type="submit" value="Create Book">
+        </form>
+    </div>
 </body>
 </html>
