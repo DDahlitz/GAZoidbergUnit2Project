@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <%- include('partials/head.ejs') %>
+    </head>
 <body>
     <h1>Edit this Book Page</h1>
     <div class="container">
-        <form action="/bookworm" method="POST">
-            <input type="text" name="name" placeholder= "Book Title" > <br>
-            <input type="text" name="genre" placeholder= "Genre" > <br>
-            <input type="text" name="img" placeholder= "Cover Image" ><br>
-            <input type="text" name="author" placeholder= "Author" > <br>
-            <input type="number" name="price" placeholder="Price"> <br>
-            <input type="text" name="description" placeholder= "Description" > <br>
-            <input type="checkbox" name="read"> <br>
-            <input type="checkbox" name="owned"> <br>
-            <input type="submit" value="Create Book">
+            <form form-groupaction="/bookworm/<%=book._id%>?_method=PUT" method="POST">
+                <input type="text" class="form-control" name="name" value="<%=book.name%>" placeholder="Book Title"/><br/>
+                <input type="text" class="form-control" name="date" value="<%=book.genre%>" placeholder="Genre"/><br/>
+                <input type="text" class="form-control" name="img" value="<%=book.img%>" placeholder="Cover Image"/><br/>
+                <input type="text" class="form-control" name="author" value="<%=book.author%>" placeholder="Author"/><br/>
+                <input type="name" class="form-control" name="author" value="<%=book.price%>" placeholder="Price"/><br/>
+                <input type="text" class="form-control" name="description" value="<%=book.description%>" placeholder="Description"/><br/>
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="read"
+                    <% if(book.read === true ){ %>
+                        checked
+                    <% } %>    
+                    >
+                    <label class="form-check-label">
+                        Check Box if you have read this book
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" name="read"
+                    <% if(book.owned === true ){ %>
+                        checked
+                    <% } %>    
+                    >
+                    <label class="form-check-label">
+                        Check Box if you own this book
+                    </label>
+                </div>
+                <br/>
+        <input class="btn btn-success" type="submit" value="Submit Changes"/>
         </form>
     </div>
 </body>

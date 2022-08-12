@@ -52,13 +52,18 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Update
 // PUT /bookworm/:id
 app.put('/bookworm/:id', (req, res) => {
-    if(req.body.completed === 'on'){
-        req.body.completed = true;
+    if(req.body.owned === 'on'){
+        req.body.owned = true;
     }else{
-        req.body.completed = false;
-    }
+        req.body.owned = false;
+    };
+    if(req.body.read === 'on'){
+        req.body.read = true;
+    }else{
+        req.body.read = false;
+    };
     Bookworm.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedNewBook) => {
-        res.redirect('/book')
+        res.redirect('/bookworm');
     })
 })
 
@@ -73,11 +78,16 @@ app.get('/bookworm/:id/edit', (req, res) => {
 // Create
 //POST /bookworm.post
 app.post('/bookworm', (req,res) => {
-    if(req.body.completed === 'on'){
-        req.body.completed = true;
+    if(req.body.owned === 'on'){
+        req.body.owned = true;
     }else{
-        req.body.completed = false;
-    }
+        req.body.owned = false;
+    };
+    if(req.body.read === 'on'){
+        req.body.read = true;
+    }else{
+        req.body.read = false;
+    };
         Bookworm.create(req.body, (error, newBook) => {
             res.redirect('/bookworm');
         });
@@ -113,7 +123,7 @@ app.get('/bookworm', (req, res) => {
     });
 });
 
-//localhost:3000∂
+//localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
