@@ -12,11 +12,16 @@
                 <input type="text" name="img" placeholder= "Cover Image" ><br>
                 <input type="text" name="author" placeholder= "Author" > <br>
                 <input type="number" name="price" placeholder="Price"> <br>
-                <input type="text" name="description" placeholder= "Description" > <br>
+                <div class="form-group">
+                    <textarea class="form-control" rows="4" name="description" placeholder="Description"></textarea>
+                </div><br>
                 <input type="checkbox" name="read"> <p>Check for Read/ Leave empty for Unread</p> <br>
                 <input type="checkbox" name="owned"> <p>Check for Owned/ Leave empty for Unowned</p> <br>
                 <input type="submit" value="Create Book">
             </form>
         </div>
+        <footer>
+            <%- include('partials/footer.ejs') %>
+        </footer>
 </body>
 </html>

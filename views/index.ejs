@@ -8,6 +8,10 @@
     <div>
         <nav class="nav">
             <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" href="/bookworm">All</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/bookworm">Owned</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/bookworm">Unowned</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/bookworm">Read and Unread</a></li>
                 <li class="nav-item"><a class="nav-link active" href="/bookworm/new">To add a new Book</a></li>
             </ul>
         </nav>
@@ -17,25 +21,32 @@
     <header>
         <h1 class="">Bookworm Main Page</h1>
     </header>
-
-    <div class="row">
+    <div class="card-deck text-center row">
         <% for (let i = 0; i < book.length; i++) { %>
-            <div class="LibraryItem">
-                <div class="book">
-                    <h6><%=book[i].name%></h6>
-                </div>
-                    <a href="/bookworm/<%=book[i]._id%>">
-                    <img class="bookImage" src="<%= `${book[i].img}`%>">
+            <div class="col-sm-6 col-md-4 col-lg-2.5fr col-xl-2">
+                <div class="card">
+                    <a href="/bookworm/<%=book[i]._id%>" class="">
+                        <img src="<%= `${book[i].img}`%>" class="rounded img-fluid card-img-top">
                     </a>
-                <div class="editAndDelete    ">
-                    <button><a href="/bookworm/<%=book[i]._id%>/edit">Edit</a></button>
-                    <form action="/bookworm/<%=book[i]._id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="DELETE" />
-                    </form>
+                    <div class="card-body">
+                        <h6 class="card-title"><%=book[i].name%></h6>
+                    </div>
+                    <div class="card-footer btn-toolbar justify-content-around" role="toolbar">
+                        <div class="">
+                            <button class="btn btn-outline-primary btn-md"><a href="/bookworm/<%=book[i]._id%>/edit">Edit</a></button>
+                        </div>
+                        <div class="">
+                            <form action="/bookworm/<%=book[i]._id%>?_method=DELETE" method="POST">
+                                <input class="btn btn-outline-danger btn-md" type="submit" value="DELETE" />
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         <% }%>
     </div>
-
+    <footer>
+        <%- include('partials/footer.ejs') %>
+    </footer>
     </body>
 </html>

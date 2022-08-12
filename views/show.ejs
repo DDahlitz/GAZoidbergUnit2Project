@@ -4,6 +4,26 @@
         <%- include('partials/head.ejs') %>
     </head>
 <body>
-    <h1>This books Page</h1>
+    <h1><%=book.name%></h1>
+    <p><%=book.author%></p>
+    <img class="bookImage" src= "<%= book.img %> ">
+    <h4><%=book.genre%></h4>
+    <p><%=book.description%></p>
+    <% if (book.owned === true) { %>
+        <p>You already own this book.</p>
+    <% } else { %>
+        <p>You have not yet purchased this book.</p>
+        <p>The average cost of this book is $<%=book.price%></p>
+    <% } %>
+    <% if (book.read === true) { %>
+        <p>You have already read this book.</p>
+    <% } else { %>
+        <p>You have not read this book yet</p>
+    <% } %>
+
+
+    <footer>
+        <%- include('partials/footer.ejs') %>
+    </footer>
 </body>
 </html>
