@@ -3,29 +3,39 @@
     <head>
         <%- include('partials/head.ejs') %>
     </head>
-<body>
-    <h1>Bookworm Main Page</h1>
-    <nav>
-        <a href="/bookworm/new">To add a new Book</a>
-    </nav>
-    <div class="library">
-    <% for (let i = 0; i < book.length; i++) { %>
-        <div class="LibraryItem">
-            <div class="book">
-                <h4><%=book[i].name%></h4>
-            </div>
-                <a href="/bookworm/<%=book[i]._id%>">
-                <img class="bookImage" src="<%= `${book[i].img}`%>">
-                </a>
-            <div class="editAndDelete">
-                <button><a href="/bookworm/<%=book[i]._id%>/edit">Edit</a></button>
-                <form action="/bookworm/<%=book[i]._id%>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE" />
-                </form>
-            </div>
-        </div>
-    <% }%>
+
+
+    <div>
+        <nav class="nav">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" href="/bookworm/new">To add a new Book</a></li>
+            </ul>
+        </nav>
     </div>
 
-</body>
+<body>
+    <header>
+        <h1 class="">Bookworm Main Page</h1>
+    </header>
+
+    <div class="row">
+        <% for (let i = 0; i < book.length; i++) { %>
+            <div class="LibraryItem">
+                <div class="book">
+                    <h6><%=book[i].name%></h6>
+                </div>
+                    <a href="/bookworm/<%=book[i]._id%>">
+                    <img class="bookImage" src="<%= `${book[i].img}`%>">
+                    </a>
+                <div class="editAndDelete    ">
+                    <button><a href="/bookworm/<%=book[i]._id%>/edit">Edit</a></button>
+                    <form action="/bookworm/<%=book[i]._id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE" />
+                    </form>
+                </div>
+            </div>
+        <% }%>
+    </div>
+
+    </body>
 </html>

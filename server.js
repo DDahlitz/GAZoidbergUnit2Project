@@ -49,6 +49,15 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 
+
+// Edit
+// GET /bookworm/:id/edit
+app.get('/bookworm/:id/edit', (req, res) => {
+    Bookworm.findById(req.params.id, (error, thisBook) => {
+        res.render('edit.ejs', {book: thisBook});
+    });
+});
+
 // Update
 // PUT /bookworm/:id
 app.put('/bookworm/:id', (req, res) => {
@@ -67,14 +76,6 @@ app.put('/bookworm/:id', (req, res) => {
     })
 })
 
-// Edit
-// GET /bookworm/:id/edit
-app.get('/bookworm/:id/edit', (req, res) => {
-    Bookworm.findById(req.params.id, (error, thisBook) => {
-        res.render('edit.ejs', {book: thisBook});
-    });
-});
-
 // Create
 //POST /bookworm.post
 app.post('/bookworm', (req,res) => {
@@ -92,6 +93,9 @@ app.post('/bookworm', (req,res) => {
             res.redirect('/bookworm');
         });
     });
+
+
+
 
 // Destroy
 // DELETE /bookworm/:id

@@ -6,12 +6,12 @@
 <body>
     <h1>Edit this Book Page</h1>
     <div class="container">
-            <form form-groupaction="/bookworm/<%=book._id%>?_method=PUT" method="POST">
+            <form class= "form-groupaction" action="/bookworm/<%=book._id%>?_method=PUT" method="POST">
                 <input type="text" class="form-control" name="name" value="<%=book.name%>" placeholder="Book Title"/><br/>
-                <input type="text" class="form-control" name="date" value="<%=book.genre%>" placeholder="Genre"/><br/>
+                <input type="text" class="form-control" name="genre" value="<%=book.genre%>" placeholder="Genre"/><br/>
                 <input type="text" class="form-control" name="img" value="<%=book.img%>" placeholder="Cover Image"/><br/>
                 <input type="text" class="form-control" name="author" value="<%=book.author%>" placeholder="Author"/><br/>
-                <input type="name" class="form-control" name="author" value="<%=book.price%>" placeholder="Price"/><br/>
+                <input type="number" class="form-control" name="price" value="<%=book.price%>" placeholder="Price"/><br/>
                 <input type="text" class="form-control" name="description" value="<%=book.description%>" placeholder="Description"/><br/>
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="read"
@@ -23,7 +23,7 @@
                         Check Box if you have read this book
                     </label>
                     <br>
-                    <input class="form-check-input" type="checkbox" name="read"
+                    <input class="form-check-input" type="checkbox" name="owned"
                     <% if(book.owned === true ){ %>
                         checked
                     <% } %>    
