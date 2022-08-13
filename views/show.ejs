@@ -4,23 +4,28 @@
         <%- include('partials/head.ejs') %>
     </head>
 <body>
-    <h1><%=book.name%></h1>
-    <p><%=book.author%></p>
-    <img class="bookImage" src= "<%= book.img %> ">
-    <h4><%=book.genre%></h4>
-    <p><%=book.description%></p>
-    <% if (book.owned === true) { %>
-        <p>You already own this book.</p>
-    <% } else { %>
-        <p>You have not yet purchased this book.</p>
-        <p>The average cost of this book is $<%=book.price%></p>
-    <% } %>
-    <% if (book.read === true) { %>
-        <p>You have already read this book.</p>
-    <% } else { %>
-        <p>You have not read this book yet</p>
-    <% } %>
-
+    <div class="flex row justify-content-around">
+        <div class="col-4">
+            <img class="img-fluid" style="width: 100%;" src= "<%= book.img %> ">
+        </div>  
+        <div class="col-4 justify-content-start">
+            <h1><%=book.name%></h1>
+            <p><%=book.author%></p>
+            <h4><%=book.genre%></h4>
+            <p><%=book.description%></p>
+            <% if (book.owned === true) { %>
+                <p>You already own this book.</p>
+            <% } else { %>
+                <p>You have not yet purchased this book.</p>
+                <p>The average cost of this book is $<%=book.price%></p>
+            <% } %>
+            <% if (book.read === true) { %>
+                <p>You have already read this book.</p>
+            <% } else { %>
+                <p>You have not read this book yet</p>
+            <% } %>
+        </div>
+    </div>
 
     <footer>
         <%- include('partials/footer.ejs') %>
