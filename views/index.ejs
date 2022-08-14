@@ -5,50 +5,77 @@
     </head>
 
 
+
+
+<body>
     <div>
         <nav class="nav flex justify-content-between">
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" href="/bookworm">All</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/bookworm">Owned</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/bookworm">Unowned</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/bookworm">Read and Unread</a></li>
+                <li class="nav-item"><button id="show-all" class="nav-link active">All</button></li>
+                <li class="nav-item"><button id="show-owned" class="nav-link active">Owned</button></li>
+                <li class="nav-item"><button id="show-unowned" class="nav-link active">Unowned</button></li>
+                <li class="nav-item"><button id="read-or-unread" class="nav-link active">Read and Unread</button></li>
             </ul>
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link active" href="/bookworm/new">To add a new Book</a></li>
             </ul>
         </nav>
     </div>
-
-<body>
     <header>
         <h1 class="">Bookworm Main Page</h1>
     </header>
-    <div class="card-deck container-fluid text-center row">
+    <div class="card-deck container-fluid justify-content-around text-center row">
         <% for (let i = 0; i < book.length; i++) { %>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card" style="min-width: 180px;">
+                <div class="card col flex owned<%=book[i].owned%> read<%=book[i].read%>" style="min-width: 300px; max-width: 300px;">
                     <a href="/bookworm/<%=book[i]._id%>" class="">
                         <img src="<%= `${book[i].img}`%>" class="rounded card-img-top" style="object-fit: cover;" >
                     </a>
                     <div class="card-body">
                         <h6 class="card-title"><%=book[i].name%></h6>
                     </div>
-                    <div class="card-footer btn-toolbar justify-content-around" role="toolbar">
-                        <div class="">
-                            <button class="btn btn-outline-primary btn-md"><a href="/bookworm/<%=book[i]._id%>/edit">Edit</a></button>
-                        </div>
-                        <div class="">
-                            <form action="/bookworm/<%=book[i]._id%>?_method=DELETE" method="POST">
-                                <input class="btn btn-outline-danger btn-md" type="submit" value="DELETE" />
-                            </form>
-                        </div>
-                    </div>
                 </div>
-            </div>
         <% }%>
     </div>
     <footer>
         <%- include('partials/footer.ejs') %>
     </footer>
     </body>
+    <script>
+
+/*============================Variables==============================*/
+$all = $('#show-all')
+$owned = $('#show-owned')
+$unowned = $('#show-unowned')
+$readOrUnread = $('#read-or-unread')
+
+/*=========================== Functions ===============================*/
+const displayAll = () => {
+    $('.card').show()
+}
+
+const displayOwned = () => {
+    $('.ownedfalse').hide()
+    $('.ownedtrue').show()
+}
+
+const displayUnowned = () => {
+    $('.ownedfalse').show()
+    $('.ownedtrue').hide()
+}
+
+const displayReadStatus = () => {
+    $('.card').show()
+    $('.readtrue').css()
+    $('.readfalse').css()
+}
+
+// owned-true owned-false
+// read-true read false
+
+/*=============================Function Calls=============================*/
+    $('#show-all').on('click', displayAll);
+    $('#show-owned').on('click', displayOwned);
+    $('#show-unowned').on('click', displayUnowned);
+    $('#read-or-unread').on('click', displayReadStatus);
+    </script>
 </html>

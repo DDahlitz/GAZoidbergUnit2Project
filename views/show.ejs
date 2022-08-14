@@ -4,26 +4,47 @@
         <%- include('partials/head.ejs') %>
     </head>
 <body>
+    <nav class="nav flex justify-content-between">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a id="show-all" class="nav-link active" href="/bookworm">All</a></li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="/bookworm/new">To add a new Book</a></li>
+        </ul>
+    </nav>
     <div class="flex row justify-content-around">
-        <div class="col-4">
+        <div class="col-3">
             <img class="img-fluid" style="width: 100%;" src= "<%= book.img %> ">
         </div>  
-        <div class="col-4 justify-content-start">
-            <h1><%=book.name%></h1>
-            <p><%=book.author%></p>
-            <h4><%=book.genre%></h4>
-            <p><%=book.description%></p>
-            <% if (book.owned === true) { %>
-                <p>You already own this book.</p>
-            <% } else { %>
-                <p>You have not yet purchased this book.</p>
-                <p>The average cost of this book is $<%=book.price%></p>
-            <% } %>
-            <% if (book.read === true) { %>
-                <p>You have already read this book.</p>
-            <% } else { %>
-                <p>You have not read this book yet</p>
-            <% } %>
+        <div class="col-6 justify-content-start">
+            <div class="row-9">
+                <h1><%=book.name%></h1>
+                <p><%=book.author%></p>
+                <h4><%=book.genre%></h4>
+                <p><%=book.description%></p>
+                <% if (book.owned === true) { %>
+                    <p>You already own this book.</p>
+                <% } else { %>
+                    <p>You have not yet purchased this book.</p>
+                    <p>The average cost of this book is $<%=book.price%></p>
+                <% } %>
+                <% if (book.read === true) { %>
+                    <p>You have already read this book.</p>
+                <% } else { %>
+                    <p>You have not read this book yet</p>
+                <% } %>
+            </div>
+            <br>
+            <div class="row-3 btn-toolbar justify-content-around" role="toolbar">
+                <div class="">
+                    <button class="btn btn-outline-primary btn-md"><a href="/bookworm/<%=book._id%>/edit">Edit</a></button>
+                </div>
+                <div class="">
+                    <form action="/bookworm/<%=book._id%>?_method=DELETE" method="POST">
+                        <input class="btn btn-outline-danger btn-md" type="submit" value="DELETE" />
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 

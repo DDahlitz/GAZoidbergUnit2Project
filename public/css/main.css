@@ -9,4 +9,35 @@ body{
 .row {
     display: flex;
     flex-wrap: wrap;
- }
+}
+
+/* .ownedfalse h6{
+    text-decoration: line-through;
+} */
+
+.card {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.card a{
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content;
+    max-height: 430px;
+    overflow-y: hidden;
+}
+
+img{
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.06);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2), 0 4px 8px rgba(0,0,0,.1);
+    text-decoration: none;
+}

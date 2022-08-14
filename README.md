@@ -11,3 +11,11 @@ created the delete route, and confirmed in Mongo Atlas the object was deleted
 
 This is the first time I have used bootstrap to do the majority of the CSS
 The documentation provided by bootstrap was the info used to learn bootstrap
+
+Basic bootstrap used to place items into rows and columns scale and rearrange with viewport sizes
+Folder and file made in public directory for js use on the page
+
+Jquery added to the All/ Owned/ Unowned Buttons
+Jquery added in the index.ejs file in Script tags
+The cards made with Flex box were cleaned up and images placed flush with top, right, and left
+Cards given max-height with overflow hidden
