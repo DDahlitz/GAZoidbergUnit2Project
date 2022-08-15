@@ -3,23 +3,9 @@
     <head>
         <%- include('partials/head.ejs') %>
     </head>
-
-
-
-
 <body>
     <div>
-        <nav class="nav flex justify-content-between">
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><button id="show-all" class="nav-link active">All</button></li>
-                <li class="nav-item"><button id="show-owned" class="nav-link active">Owned</button></li>
-                <li class="nav-item"><button id="show-unowned" class="nav-link active">Unowned</button></li>
-                <li class="nav-item"><button id="read-or-unread" class="nav-link active">Read and Unread</button></li>
-            </ul>
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" href="/bookworm/new">To add a new Book</a></li>
-            </ul>
-        </nav>
+        <%-include('partials/header.ejs') %>
     </div>
     <header>
         <h1 class="">Bookworm Main Page</h1>
@@ -40,42 +26,5 @@
         <%- include('partials/footer.ejs') %>
     </footer>
     </body>
-    <script>
-
-/*============================Variables==============================*/
-$all = $('#show-all')
-$owned = $('#show-owned')
-$unowned = $('#show-unowned')
-$readOrUnread = $('#read-or-unread')
-
-/*=========================== Functions ===============================*/
-const displayAll = () => {
-    $('.card').show()
-}
-
-const displayOwned = () => {
-    $('.ownedfalse').hide()
-    $('.ownedtrue').show()
-}
-
-const displayUnowned = () => {
-    $('.ownedfalse').show()
-    $('.ownedtrue').hide()
-}
-
-const displayReadStatus = () => {
-    $('.card').show()
-    $('.readtrue').css()
-    $('.readfalse').css()
-}
-
-// owned-true owned-false
-// read-true read false
-
-/*=============================Function Calls=============================*/
-    $('#show-all').on('click', displayAll);
-    $('#show-owned').on('click', displayOwned);
-    $('#show-unowned').on('click', displayUnowned);
-    $('#read-or-unread').on('click', displayReadStatus);
-    </script>
+        <%- include('partials/jquery.ejs') %>
 </html>

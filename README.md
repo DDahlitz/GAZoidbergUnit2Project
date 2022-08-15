@@ -19,3 +19,5 @@ Jquery added to the All/ Owned/ Unowned Buttons
 Jquery added in the index.ejs file in Script tags
 The cards made with Flex box were cleaned up and images placed flush with top, right, and left
 Cards given max-height with overflow hidden
+
+jquery placed in a separate ejs file and linked through a partial

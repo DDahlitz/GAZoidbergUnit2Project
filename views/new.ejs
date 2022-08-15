@@ -4,6 +4,14 @@
         <%- include('partials/head.ejs') %>
     </head>
 <body>
+    <nav class="nav flex justify-content-between">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a id="show-all" class="nav-link active" href="/bookworm">Home Page</a></li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="/bookworm/new">To add a new Book</a></li>
+        </ul>
+    </nav>
     <h1>New book page</h1>
         <div class="container">
             <form class= "form-groupaction" action="/bookworm" method="POST">
@@ -16,16 +24,11 @@
                     <textarea class="form-control" rows="4" name="description" placeholder="Description"></textarea>
                 </div><br>
                 <div class="form-check">
-
-                <input class="form-check-input" type="checkbox" name="read">
-                <label class="form-check-label">Check for Read/ Leave empty for Unread</label><br>
-                <input class="form-check-input" type="checkbox" name="owned">
-                <label class="form-check-label">Check for Owned/ Leave empty for Unowned</label><br>
-                
-                
-                <input class="btn btn-success" type="submit" value="Create Book">
-            
-            
+                    <input class="form-check-input" type="checkbox" name="read">
+                        <label class="form-check-label">Check for Read/ Leave empty for Unread</label><br>
+                    <input class="form-check-input" type="checkbox" name="owned">
+                        <label class="form-check-label">Check for Owned/ Leave empty for Unowned</label><br>
+                    <input class="btn btn-success" type="submit" value="Create Book">
                 </div>
             </form>
         </div>
