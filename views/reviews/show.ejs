@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%=comments.reviews%></h1>
+    <small>About: <a href="/bookworm/<%=book._id%>"><%=book.name%></a></small>
+<br>
+    <section>
+        <h2>Comments about this book:</h2>
+        <ul>
+            <% for(let i = 0; i < book.comment.length; i++){ %>
+                <li><a href="/reviews/<%=book.comment[i]._id%>"><%=book.comments[i].reviews%></a></li>
+            <% } %>
+        </ul>
+    </section>
+</body>
+</html>

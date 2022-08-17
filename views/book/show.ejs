@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head.ejs') %>
+    </head>
+<body>
+    <nav class="nav flex justify-content-between">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a id="show-all" class="nav-link active" href="/bookworm">Home Page</a></li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="/bookworm/new">To add a new Book</a></li>
+        </ul>
+    </nav>
+    <div class="flex col">
+        <div class="flex row justify-content-around">
+            <div class="col-4">
+                <img class="img-fluid" style="width: 100%;" src= "<%= book.img %> ">
+            </div>  
+            <div class="col-6 justify-content-start">
+                <div class="row-9">
+                    <h1><%=book.name%></h1>
+                    <br>
+                    <p><%=book.author%></p>
+                    <br>
+                    <h4><%=book.genre%></h4>
+                    <br>
+                    <p><%=book.description%></p>
+                    <br>
+                    <div class="row-6 btn-toolbar justify-content-around flex" role="toolbar">
+                        <div class="justify-content-start">
+                            <button class="btn btn-outline-primary btn-md"><a href="/bookworm/<%=book._id%>/edit">Edit this page</a></button>
+                        </div>
+                        <div class="justify-content-start">
+                            <form action="/bookworm/<%=book._id%>?_method=DELETE" method="POST">
+                                <input class="btn btn-outline-danger btn-md" type="submit" value="Delete" />
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+                    <% if (book.owned === true) { %>
+                        <p>You already own this book.</p>
+                    <% } else { %>
+                        <p>You have not yet purchased this book.</p>
+                        <p>The average cost of this book is $<%=book.price%></p>
+                    <% } %>
+                    <% if (book.read === true) { %>
+                        <p>You have already read this book.</p>
+                    <% } else { %>
+                        <p>You have not read this book yet</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="row-1">
+            <div class="Column">
+                <div class="form-group row justify-content-around" action="/bookworm/<%=book._id%>" method="POST">
+                    <textarea class="form-control col-8" rows="4" name="comments.reviews" placeholder="Reviews"></textarea>
+                    <input class="btn btn-success col-2" type="submit" value="Post Comment">
+                </div>
+                <%for(let i = 0 ; i < book.comments.length; i++) { %>
+                    <div>
+                        <p><%=book.comments[i].reviews%></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer> -->
+</body>
+</html>

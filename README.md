@@ -21,3 +21,6 @@ The cards made with Flex box were cleaned up and images placed flush with top, r
 Cards given max-height with overflow hidden
 
 jquery placed in a separate ejs file and linked through a partial
+
+Having difficulty linking the two controllers and the reviews.js route is not running correctly
+Spent too much time trying to link the controllers and made things worse, after some time will come back to a branched version and clean up to make it work

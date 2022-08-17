@@ -2,28 +2,27 @@
     /*=========================== Functions ===============================*/
     const displayAll = () => {
         $('.card').show()
-        $('.readfalse').css({"text-decoration": "none"})
-        $('.readfalse').children('a').css({"opacity": "1"})
+        $('.readtrue').css({"text-decoration": "none"})
+        $('.readtrue').children('a').css({"opacity": "1"})
     }
 
     const displayOwned = () => {
         $('.ownedfalse').hide()
         $('.ownedtrue').show()
-        $('.readfalse').css({"text-decoration": "none"})
-        $('.readfalse').children('a').css({"opacity": "1"})
+        $('.readtrue').css({"text-decoration": "none"})
+        $('.readtrue').children('a').css({"opacity": "1"})
     }
 
     const displayUnowned = () => {
         $('.ownedfalse').show()
         $('.ownedtrue').hide()
-        $('.readfalse').css({"text-decoration": "none"})
-        $('.readfalse').children('a').css({"opacity": "1"})
+        $('.readtrue').css({"text-decoration": "none"})
+        $('.readtrue').children('a').css({"opacity": "1"})
     }
 
     const displayReadStatus = () => {
-        $('.card').show()
-        $('.readfalse').css({"text-decoration": "line-through"})
-        $('.readfalse').children('a').css({"opacity": "0.1"})
+        $('.readtrue').css({"text-decoration": "line-through"})
+        $('.readtrue').children('a').css({"opacity": "0.1"})
     }
 
     // owned-true owned-false

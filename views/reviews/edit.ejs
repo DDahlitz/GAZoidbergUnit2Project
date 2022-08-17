@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/reviews/<%=reviews._id%>?_method=PUT" method="POST">
+        <select name="bookId">
+            <% for(let i = 0; i < book.length; i++) { %>
+                <option
+                    value="<%=book[i]._id%>"
+                    <% if(book[i]._id.toString() === bookReview._id.toString()){ %>
+                        selected
+                    <% } %>
+                    >
+                    <%=book[i].name%>
+                </option>
+            <% } %>
+        </select><br/>
+        <textarea name="comments"><%=comment.reviews%></textarea><br/>
+        <input type="submit" value="Update Review"/>
+    </form>
+</body>
+</html>

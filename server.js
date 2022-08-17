@@ -4,10 +4,10 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
-const Bookworm = require('./models/schema.js')
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
+
 //___________________
 //Port
 //___________________
@@ -49,88 +49,11 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 
+const reviewsController = require('./controllers/reviews.js');
+app.use('/reviews',reviewsController);
 
-// Edit
-// GET /bookworm/:id/edit
-app.get('/bookworm/:id/edit', (req, res) => {
-    Bookworm.findById(req.params.id, (error, thisBook) => {
-        res.render('edit.ejs', {book: thisBook});
-    });
-});
-
-// Update
-// PUT /bookworm/:id
-app.put('/bookworm/:id', (req, res) => {
-    if(req.body.owned === 'on'){
-        req.body.owned = true;
-    }else{
-        req.body.owned = false;
-    };
-    if(req.body.read === 'on'){
-        req.body.read = true;
-    }else{
-        req.body.read = false;
-    };
-    Bookworm.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedNewBook) => {
-        res.redirect('/bookworm');
-    })
-})
-
-// Create
-//POST /bookworm.post
-app.post('/bookworm', (req,res) => {
-    if(req.body.owned === 'on'){
-        req.body.owned = true;
-    }else{
-        req.body.owned = false;
-    };
-    if(req.body.read === 'on'){
-        req.body.read = true;
-    }else{
-        req.body.read = false;
-    };
-        Bookworm.create(req.body, (error, newBook) => {
-            res.redirect('/bookworm');
-        });
-    });
-
-
-
-
-// Destroy
-// DELETE /bookworm/:id
-app.delete('/bookworm/:id', (req, res) => {
-    Bookworm.findByIdAndRemove(req.params.id, (error, removeBook) => {
-        res.redirect('/bookworm');
-    });
-});
-
-//New
-//GET /bookworm/new
-app.get('/bookworm/new', (req, res)=>{
-    res.render('new.ejs');
-});
-
-//Show
-//Get /bookworm/:index
-app.get('/bookworm/:id', (req, res) => {
-    Bookworm.findById(req.params.id, (error, thisBook) => {
-        res.render('show.ejs',{book: thisBook});
-    });
-});
-
-// Index
-//GET bookworm
-app.get('/bookworm', (req, res) => {
-    Bookworm.find({}, (error, allBooks) => {
-        res.render('index.ejs', {book: allBooks});
-    });
-});
-
-//localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+const booksController = require('./controllers/bookworm.js');
+app.use('/bookworm', booksController);
 
 //___________________
 //Listener

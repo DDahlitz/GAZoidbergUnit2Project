@@ -47,3 +47,13 @@ img{
 .read-false a .active{
     opacity: 0.1;
 }
+
+.card-deck{
+    padding-bottom: 100px;
+}
+
+footer{
+        height: 50px;
+        margin-top: -50px;
+        text-align: center;
+}
