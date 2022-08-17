@@ -1,0 +1,14 @@
+
+        <div class="row-1">
+            <div class="Column">
+                <div class="form-group row justify-content-around" action="/bookworm/<%=book._id%>" method="POST">
+                    <textarea class="form-control col-8" rows="4" name="comments.reviews" placeholder="Reviews"></textarea>
+                    <input class="btn btn-success col-2" type="submit" value="Post Comment">
+                </div>
+                <%for(let i = 0 ; i < book.comments.length; i++) { %>
+                    <div>
+                        <p><%=book.comments[i].reviews%></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
