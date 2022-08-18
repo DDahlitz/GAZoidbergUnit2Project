@@ -12,9 +12,9 @@
     </header>
     <div class="card-deck container-fluid justify-content-around text-center row">
         <% for (let i = 0; i < book.length; i++) { %>
-                <div class="card col flex owned<%= book[i].owned %> read<%= book[i].read %>" style="min-width: 300px; max-width: 300px;">
-                    <a href="/bookworm/<%= book[i]._id %>" class="">
-                        <img src="<%= `${book[i].img}` %>" class="rounded card-img-top" style="object-fit: cover;" >
+                <div class="card col flex owned<%=book[i].owned%> read<%=book[i].read%>" style="min-width: 300px; max-width: 300px;">
+                    <a href="/bookworm/<%=book[i]._id%>" class="">
+                        <img src="<%=book[i].img%>" class="rounded card-img-top" style="object-fit: cover;" >
                     </a>
                     <div class="card-body">
                         <h6 class="card-title"><%= book[i].name %></h6>
@@ -26,5 +26,4 @@
         <%- include('../partials/footer.ejs') %>
     </footer>
 </body>
-        <%- include('../partials/jquery.ejs') %>
 </html>

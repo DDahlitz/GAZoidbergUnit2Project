@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Review = require('./reviewSchema.js');
 
-
 const bookwormSchema = new mongoose.Schema({
     name: {
         type: String,

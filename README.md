@@ -1,6 +1,19 @@
 # GAZoidbergUnit2Project
 GA Zoidberg Unit 2 Project
 
+https://github.com/DDahlitz/GAZoidbergUnit2Project
+
+https://powerful-stream-78129.herokuapp.com/bookworm
+
+App called Overbooked
+
+It allows users to catalogue to their owned books/ wishlist and catalogue which ones they have already read or not.
+
+Users can log the Book title, author name, genre, description, and price(only displays if not owned). Books can be added, updated, and deleted from the collection. Users are able to write a description about each book entry and edit those entries.
+
+
+
+
 Started this project by outlining and determining page layouts
 basic HTML structure for the different pages were made
 Routes were then added to the server.js file while confirming they did connect to the pages
@@ -22,5 +35,5 @@ Cards given max-height with overflow hidden
 
 jquery placed in a separate ejs file and linked through a partial
 
-Having difficulty linking the two controllers and the reviews.js route is not running correctly
+I was having difficulties linking the two controllers and the reviews.js route is not running correctly
 Spent too much time trying to link the controllers and made things worse, after some time will come back to a branched version and clean up to make it work

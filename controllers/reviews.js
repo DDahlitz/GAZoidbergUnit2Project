@@ -3,15 +3,6 @@ const router = express.Router();
 const Review = require('../models/reviewSchema.js')
 const Bookworm = require('../models/bookSchema.js')
 
-
-
-
-// //___________________
-// // Routes
-// //___________________
-
-
-
 router.get('/new', (req, res)=>{
     Bookworm.find({}, (err, allBooks)=>{
         res.render('reviews/new.ejs', {
@@ -19,7 +10,6 @@ router.get('/new', (req, res)=>{
         });
     });
 });
-
 
 router.post('/', (req, res)=>{
     Bookworm.findById(req.body.bookId, (err, foundBook)=>{
@@ -32,8 +22,6 @@ router.post('/', (req, res)=>{
     });
 });
 
-
-
 router.get('/:id', (req, res)=>{
     Review.findById(req.params.id, (err, foundReview)=>{
         Bookworm.findOne({'reviews._id':req.params.id}, (err, foundBook)=>{
@@ -44,8 +32,6 @@ router.get('/:id', (req, res)=>{
         })
     });
 });
-
-
 
 router.put('/:id', (req, res)=>{
     Review.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedReview)=>{
@@ -59,7 +45,6 @@ router.put('/:id', (req, res)=>{
     });
 });
 
-
 router.delete('/:id', (req, res)=>{
     Review.findByIdAndRemove(req.params.id, (err, foundReview)=>{
         Bookworm.findOne({'reviews._id':req.params.id}, (err, foundBook)=>{
@@ -70,8 +55,6 @@ router.delete('/:id', (req, res)=>{
         });
     });
 });
-
-
 
 router.delete('/:id', (req, res)=>{
 	Bookworm.findByIdAndRemove(req.params.id, (err, foundBook)=>{
@@ -97,7 +80,7 @@ router.get('/:id/edit', (req, res)=>{
 	Review.findById(req.params.id, (err, foundReview)=>{
 		Bookworm.find({}, (err, allBooks)=>{
 			Bookworm.findOne({'reviews._id':req.params.id}, (err, foundBookReview)=>{
-				res.render('reviews/edit.ejs', {
+				res.render('/reviews/edit.ejs', {
 					comment: foundReview,
 					books: allBooks,
 					bookReview: foundBookReview
@@ -106,7 +89,6 @@ router.get('/:id/edit', (req, res)=>{
 		});
 	});
 });
-
 
 router.put('/:id', (req, res)=>{
     Review.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedReview)=>{
@@ -132,14 +114,12 @@ router.put('/:id', (req, res)=>{
     });
 });
 
-
 router.get('/', (req, res)=>{
 	Review.find({}, (err, foundReviews)=>{
-		res.render('reviews/index.ejs', {
+		res.render('/reviews/index.ejs', {
 			review: foundReviews
 		});
 	})
 });
-
 
 module.exports = router;

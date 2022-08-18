@@ -13,15 +13,15 @@
         </ul>
     </nav>
     <div class="container">
-        <br/>
+        <br>
         <h1>Edit this Overbooked Page</h1>
-        <br/>
+        <br>
         <form class= "form-groupaction" action="/bookworm/<%=book._id%>?_method=PUT" method="POST">
-            <input type="text" class="form-control" name="name" value="<%=book.name%>" placeholder="Book Title"/><br/>
-            <input type="text" class="form-control" name="genre" value="<%=book.genre%>" placeholder="Genre"/><br/>
-            <input type="text" class="form-control" name="img" value="<%=book.img%>" placeholder="Cover Image"/><br/>
-            <input type="text" class="form-control" name="author" value="<%=book.author%>" placeholder="Author"/><br/>
-            <input type="number" class="form-control" name="price" value="<%=book.price%>" placeholder="Price"/><br/>
+            <input type="text" class="form-control" name="name" value="<%=book.name%>" placeholder="Book Title"/><br>
+            <input type="text" class="form-control" name="genre" value="<%=book.genre%>" placeholder="Genre"/><br>
+            <input type="text" class="form-control" name="img" value="<%=book.img%>" placeholder="Cover Image"/><br>
+            <input type="text" class="form-control" name="author" value="<%=book.author%>" placeholder="Author"/><br>
+            <input type="number" class="form-control" name="price" value="<%=book.price%>" placeholder="Price"/><br>
             <div class="form-group">
                 <textarea class="form-control" rows="4" name="description" value="<%=book.description%>" placeholder="Description"></textarea>
             </div>
@@ -44,7 +44,7 @@
                     Check Box if you own this book
                 </label>
             </div>
-            <br/>
+            <br>
         <input class="btn btn-success" type="submit" value="Submit Changes"/>
         </form>
     </div>
