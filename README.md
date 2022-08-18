@@ -5,14 +5,11 @@ https://github.com/DDahlitz/GAZoidbergUnit2Project
 
 https://powerful-stream-78129.herokuapp.com/bookworm
 
-App called Overbooked
+##Overbooked App
 
 It allows users to catalogue to their owned books/ wishlist and catalogue which ones they have already read or not.
 
 Users can log the Book title, author name, genre, description, and price(only displays if not owned). Books can be added, updated, and deleted from the collection. Users are able to write a description about each book entry and edit those entries.
-
-
-
 
 Started this project by outlining and determining page layouts
 basic HTML structure for the different pages were made
